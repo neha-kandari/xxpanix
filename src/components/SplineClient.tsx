@@ -56,20 +56,11 @@ export default function SplineClient() {
             height: '200px',
             background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)',
             borderRadius: '50%',
+            opacity: 0.4,
+            transform: 'scale(1)',
+            transition: 'opacity 0.3s ease, transform 0.3s ease',
           }}
-          className="splineClientPulse"
         />
-        <style>
-          {`
-            @keyframes splineClientPulse {
-              0%, 100% { opacity: 0.3; transform: scale(1); }
-              50% { opacity: 0.6; transform: scale(1.1); }
-            }
-            .splineClientPulse {
-              animation: splineClientPulse 2s ease-in-out infinite;
-            }
-          `}
-        </style>
       </div>
     );
   }
