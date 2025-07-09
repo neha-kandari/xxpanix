@@ -78,7 +78,7 @@ export default function SplineClient() {
     >
       {shouldLoad && React.createElement('spline-viewer', {
         'loading-anim': true,
-        url: "https://prod.spline.design/AhURSIIipGjuVZ8K/scene.splinecode",
+        url: "https://prod.spline.design/U3Tncp-DHXTJZGoB/scene.splinecode",
         style: {
           width: '100%',
           height: '100%',
