@@ -90,13 +90,13 @@ export default function HeroSection({ children }: HeroSectionProps) {
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto items-center justify-center mb-10 max-w-md">
           <button 
             onClick={handleGetStarted}
-            className="w-full sm:w-auto px-6 py-3 rounded-full bg-black/80 backdrop-blur-md text-white font-medium text-sm sm:text-base border border-white/20 shadow-lg pointer-events-auto relative overflow-hidden hover:bg-black/90 hover:border-white/30 transition-all duration-300 transform hover:scale-105 hover:shadow-xl min-w-[140px]"
+            className="glow-btn px-5 py-2 rounded-lg bg-black/80 text-white font-semibold border border-white/10 shadow pointer-events-auto text-base relative overflow-hidden"
           >
             Get Started Now
           </button>
           <button 
             onClick={handleSeeProjects}
-            className="w-full sm:w-auto px-6 py-3 rounded-full bg-black/80 backdrop-blur-md text-white font-medium text-sm sm:text-base border border-white/20 shadow-lg pointer-events-auto relative overflow-hidden hover:bg-black/90 hover:border-white/30 transition-all duration-300 transform hover:scale-105 hover:shadow-xl min-w-[140px]"
+            className="glow-btn px-5 py-2 rounded-lg bg-black/80 text-white font-semibold border border-white/10 shadow pointer-events-auto text-base relative overflow-hidden"
           >
             See Projects
           </button>
