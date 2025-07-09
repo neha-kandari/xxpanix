@@ -56,9 +56,7 @@ export default function SplineClient() {
             height: '200px',
             background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)',
             borderRadius: '50%',
-            opacity: 0.4,
-            transform: 'scale(1)',
-            transition: 'opacity 0.3s ease, transform 0.3s ease',
+            opacity: 0.6,
           }}
         />
       </div>
