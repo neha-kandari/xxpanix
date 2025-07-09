@@ -35,66 +35,39 @@ export default function ServiceSpline() {
     }
   }, [shouldLoad, showSpline, isMounted]);
 
-  // Show loading state during hydration to prevent mismatch
-  if (!isMounted) {
-    return (
+  // Loading placeholder component
+  const LoadingPlaceholder = () => (
+    <div 
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%)',
+        borderRadius: '8px',
+      }}
+    >
       <div 
         style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          background: 'radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%)',
-          borderRadius: '8px',
-        }}
-      >
-        <div style={{
           width: '120px',
           height: '120px',
           background: 'linear-gradient(45deg, rgba(59, 130, 246, 0.2), rgba(147, 51, 234, 0.2))',
           borderRadius: '50%',
-          animation: 'rotate 3s linear infinite',
-        }} />
-        <style jsx>{`
-          @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-          }
-        `}</style>
-      </div>
-    );
+          opacity: 0.8,
+        }}
+      />
+    </div>
+  );
+
+  // Show loading state during hydration to prevent mismatch
+  if (!isMounted) {
+    return <LoadingPlaceholder />;
   }
 
   // Fallback content for mobile/low-end devices
   if (!showSpline) {
-    return (
-      <div 
-        style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          background: 'radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%)',
-          borderRadius: '8px',
-        }}
-      >
-        <div style={{
-          width: '120px',
-          height: '120px',
-          background: 'linear-gradient(45deg, rgba(59, 130, 246, 0.2), rgba(147, 51, 234, 0.2))',
-          borderRadius: '50%',
-          animation: 'rotate 3s linear infinite',
-        }} />
-        <style jsx>{`
-          @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-          }
-        `}</style>
-      </div>
-    );
+    return <LoadingPlaceholder />;
   }
 
   return (
