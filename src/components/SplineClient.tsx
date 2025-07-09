@@ -57,7 +57,7 @@ export default function SplineClient() {
           borderRadius: '50%',
           animation: 'pulse 2s ease-in-out infinite',
         }} />
-        <style jsx>{`
+        <style>{`
           @keyframes pulse {
             0%, 100% { opacity: 0.3; transform: scale(1); }
             50% { opacity: 0.6; transform: scale(1.1); }
