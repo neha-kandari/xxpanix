@@ -82,3 +82,46 @@ a {
   outline: 2px solid #4f46e5;
   outline-offset: 2px;
 }
+
+/* Glowing animated button border */
+.glow-btn {
+  position: relative;
+  z-index: 1;
+  background: #111;
+  color: #fff;
+  border-radius: 0.75rem;
+  border: 1.5px solid #fff;
+  overflow: hidden;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.glow-btn:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  padding: 2px;
+  background: linear-gradient(120deg, #fff 40%, #fff8 60%, #fff2 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+  animation: glow-anim 2.5s linear infinite;
+  transition: filter 0.2s, opacity 0.2s;
+}
+
+.glow-btn:hover,
+.glow-btn:focus {
+  background: #222;
+  color: #fff;
+  box-shadow: 0 0 8px 2px #fff4;
+}
+
+.glow-btn:hover:before,
+.glow-btn:focus:before {
+  filter: blur(3px) brightness(1.2);
+  opacity: 1;
+}
