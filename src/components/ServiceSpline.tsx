@@ -80,7 +80,7 @@ export default function ServiceSpline() {
       }}
     >
       {shouldLoad && React.createElement('spline-viewer', {
-        url: "https://prod.spline.design/bunikdfDgR9Y2Y-Q/scene.splinecode",
+        url: "https://prod.spline.design/0HhtDF4IAOrdc6FJ/scene.splinecode",
         style: {
           width: '100%',
           height: '100%',
