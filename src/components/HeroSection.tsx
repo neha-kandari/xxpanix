@@ -113,7 +113,7 @@ export default function HeroSection({ children }: HeroSectionProps) {
             {/* Mobile GIF - show on small screens */}
             <div className="block sm:hidden w-full h-full flex items-center justify-center">
               <img 
-                src="/Video/threshold-dark-ambient-ui.gif" 
+                src="/threshold-dark-ambient-ui.gif" 
                 alt="Ambient UI Animation" 
                 className="w-full h-full object-cover rounded-lg opacity-60"
               />
