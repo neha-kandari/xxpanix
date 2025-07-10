@@ -5,7 +5,7 @@ import StatsCounter from "./StatsCounter";
 import WaveGlow from "./WaveGlow";
 
 interface HeroSectionProps {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 const words = ["stand out", "lead", "grow", "scale", "succeed"];
