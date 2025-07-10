@@ -122,7 +122,7 @@ export const Header = () => {
       {/* Badge */}
       <div className="inline-flex items-center gap-2 px-4 md:px-6 py-1.5 md:py-2 bg-[#181f2a] border border-[#25304a] rounded-full text-white text-sm md:text-lg font-semibold mb-3 md:mb-4 shadow-lg">
         <span className="text-amber-400 text-lg md:text-xl">★</span>
-        Partnership Excellence Since 2020
+       Expand Your Business With Xpanix
       </div>
       {/* Main Title */}
       <h1 className="text-3xl md:text-7xl font-extrabold mb-3 md:mb-4 tracking-tight text-white drop-shadow-lg">
