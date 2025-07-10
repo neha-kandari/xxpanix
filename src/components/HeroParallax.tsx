@@ -56,7 +56,7 @@ export const HeroParallax = ({
     springConfig,
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
+    useTransform(scrollYProgress, [0, 0.2], [-400, 400]),
     springConfig,
   );
 
@@ -67,7 +67,7 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      className="h-[300vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[280vh] py-20 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -77,9 +77,9 @@ export const HeroParallax = ({
           translateY,
           opacity,
         }}
-        className=""
+        className="mt-8"
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-16">
           {firstRowMemo.map((product) => (
             <ProductCard
               product={product}
@@ -88,7 +88,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row  mb-20 space-x-20 ">
+        <motion.div className="flex flex-row  mb-16 space-x-20 ">
           {secondRowMemo.map((product) => (
             <ProductCard
               product={product}
@@ -113,22 +113,22 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="flex flex-col items-center justify-center text-center w-full max-w-7xl mx-auto px-6 md:px-10 py-10 md:py-20">
+    <div className="flex flex-col items-center justify-center text-center w-full max-w-7xl mx-auto px-6 md:px-10 py-4 md:py-6">
       {/* Badge */}
-      <div className="inline-flex items-center gap-2 px-6 py-2 bg-[#181f2a] border border-[#25304a] rounded-full text-white text-lg font-semibold mb-8 shadow-lg">
+      <div className="inline-flex items-center gap-2 px-6 py-2 bg-[#181f2a] border border-[#25304a] rounded-full text-white text-lg font-semibold mb-4 shadow-lg">
         <span className="text-amber-400 text-xl">★</span>
-         Expand Your Business With Xpanix
+        Partnership Excellence Since 2020
       </div>
       {/* Main Title */}
-      <h1 className="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight text-white">
+      <h1 className="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight text-white">
         Our Portfolio
       </h1>
       {/* Subtitle */}
-      <p className="text-2xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed font-normal">
+      <p className="text-2xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-6 leading-relaxed font-normal">
         Four years of collaborative excellence, delivering innovative digital solutions as <span className="font-bold text-white">trusted partners</span>
       </p>
       {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-6">
         <div className="text-center">
           <div className="text-4xl md:text-5xl font-extrabold text-[#a6b3c9] mb-1">100+</div>
           <div className="text-lg text-gray-300">Projects</div>
