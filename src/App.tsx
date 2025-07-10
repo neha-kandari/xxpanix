@@ -2,6 +2,7 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import PerformanceInit from './components/PerformanceInit'
+import ScrollToTop from './components/ScrollToTop'
 
 // Pages
 import Home from './pages/Home'
@@ -19,6 +20,7 @@ function App() {
   return (
     <div className="antialiased bg-black min-h-screen">
       <PerformanceInit />
+      <ScrollToTop />
       {!isAuthPage && <Header />}
       <main>
         <Routes>
