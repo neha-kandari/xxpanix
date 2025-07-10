@@ -38,19 +38,28 @@ export default function ServiceSpline() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%)',
         borderRadius: '8px',
       }}
     >
       <div 
         style={{
-          width: '120px',
-          height: '120px',
-          background: 'linear-gradient(45deg, rgba(59, 130, 246, 0.2), rgba(147, 51, 234, 0.2))',
+          width: '150px',
+          height: '150px',
+          background: 'linear-gradient(45deg, rgba(59, 130, 246, 0.3), rgba(147, 51, 234, 0.3))',
           borderRadius: '50%',
-          opacity: 0.8,
+          opacity: 0.6,
+          animation: 'pulse 2s ease-in-out infinite alternate',
         }}
       />
+      <style>
+        {`
+          @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.1); opacity: 0.8; }
+          }
+        `}
+      </style>
     </div>
   );
 
@@ -82,6 +91,10 @@ export default function ServiceSpline() {
           opacity: isVisible ? 1 : 0,
           transition: 'opacity 0.4s ease-in-out',
         },
+        // Mobile optimization attributes
+        'pixel-ratio': window.innerWidth < 768 ? '1' : '2',
+        'render-on-demand': 'true',
+        'loading-anim-type': 'spinner-big-dark',
       })}
     </div>
   );
