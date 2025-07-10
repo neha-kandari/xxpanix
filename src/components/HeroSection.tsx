@@ -5,7 +5,7 @@ import StatsCounter from "./StatsCounter";
 import WaveGlow from "./WaveGlow";
 
 interface HeroSectionProps {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 const words = ["stand out", "lead", "grow", "scale", "succeed"];
@@ -110,8 +110,16 @@ export default function HeroSection({ children }: HeroSectionProps) {
       {children && (
         <div className="absolute inset-0 w-full h-full z-10 flex items-center justify-center px-2 sm:px-4">
           <div className="w-full h-full max-w-full max-h-full flex items-center justify-center">
-            {/* Responsive Spline container */}
-            <div className="w-full h-full sm:w-full sm:h-full md:w-full md:h-full lg:w-full lg:h-full flex items-center justify-center">
+            {/* Mobile GIF - show on small screens */}
+            <div className="block sm:hidden w-full h-full flex items-center justify-center">
+              <img 
+                src="/Video/threshold-dark-ambient-ui.gif" 
+                alt="Ambient UI Animation" 
+                className="w-full h-full object-cover rounded-lg opacity-60"
+              />
+            </div>
+            {/* Responsive Spline container - hide on small screens */}
+            <div className="hidden sm:flex w-full h-full sm:w-full sm:h-full md:w-full md:h-full lg:w-full lg:h-full items-center justify-center">
               {children}
             </div>
           </div>
