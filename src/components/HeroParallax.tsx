@@ -36,11 +36,11 @@ export const HeroParallax = ({
   const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
 
   const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, 1000]),
+    useTransform(scrollYProgress, [0, 1], [0, 800]),
     springConfig,
   );
   const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, -1000]),
+    useTransform(scrollYProgress, [0, 1], [0, -800]),
     springConfig,
   );
   const rotateX = useSpring(
@@ -56,7 +56,7 @@ export const HeroParallax = ({
     springConfig,
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-400, 400]),
+    useTransform(scrollYProgress, [0, 0.2], [0, 200]),
     springConfig,
   );
 
@@ -67,9 +67,9 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      className="h-[280vh] py-20 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[100vh] md:h-[200vh] pt-20 pb-0 md:pt-24 md:pb-0 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
-      <Header />
+      {/* Parallax Images - Behind everything */}
       <motion.div
         style={{
           rotateX,
@@ -77,9 +77,9 @@ export const HeroParallax = ({
           translateY,
           opacity,
         }}
-        className="mt-8"
+        className="absolute inset-0 z-0 mt-8 md:mt-12"
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-16">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-8 md:space-x-20 mb-4 md:mb-16">
           {firstRowMemo.map((product) => (
             <ProductCard
               product={product}
@@ -88,7 +88,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row  mb-16 space-x-20 ">
+        <motion.div className="flex flex-row mb-4 md:mb-16 space-x-8 md:space-x-20">
           {secondRowMemo.map((product) => (
             <ProductCard
               product={product}
@@ -97,7 +97,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-8 md:space-x-20">
           {thirdRowMemo.map((product) => (
             <ProductCard
               product={product}
@@ -106,54 +106,59 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-      </motion.div>
+              </motion.div>
+      
+      {/* Header Text - Overlaying the parallax */}
+      <div className="relative z-40">
+        <Header />
+      </div>
     </div>
   );
 };
 
 export const Header = () => {
   return (
-    <div className="flex flex-col items-center justify-center text-center w-full max-w-7xl mx-auto px-6 md:px-10 py-4 md:py-6">
+    <div className="flex flex-col items-center justify-center text-center w-full max-w-7xl mx-auto px-4 md:px-10 py-3 md:py-6 relative">
       {/* Badge */}
-      <div className="inline-flex items-center gap-2 px-6 py-2 bg-[#181f2a] border border-[#25304a] rounded-full text-white text-lg font-semibold mb-4 shadow-lg">
-        <span className="text-amber-400 text-xl">★</span>
+      <div className="inline-flex items-center gap-2 px-4 md:px-6 py-1.5 md:py-2 bg-[#181f2a] border border-[#25304a] rounded-full text-white text-sm md:text-lg font-semibold mb-3 md:mb-4 shadow-lg">
+        <span className="text-amber-400 text-lg md:text-xl">★</span>
         Partnership Excellence Since 2020
       </div>
       {/* Main Title */}
-      <h1 className="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight text-white">
+      <h1 className="text-3xl md:text-7xl font-extrabold mb-3 md:mb-4 tracking-tight text-white drop-shadow-lg">
         Our Portfolio
       </h1>
       {/* Subtitle */}
-      <p className="text-2xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-6 leading-relaxed font-normal">
+      <p className="text-sm md:text-2xl text-gray-300 max-w-4xl mx-auto mb-4 md:mb-6 leading-relaxed font-normal drop-shadow-md">
         Four years of collaborative excellence, delivering innovative digital solutions as <span className="font-bold text-white">trusted partners</span>
       </p>
       {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-4 md:mb-6">
         <div className="text-center">
-          <div className="text-4xl md:text-5xl font-extrabold text-[#a6b3c9] mb-1">100+</div>
-          <div className="text-lg text-gray-300">Projects</div>
+          <div className="text-2xl md:text-5xl font-extrabold text-[#a6b3c9] mb-1 drop-shadow-md">100+</div>
+          <div className="text-xs md:text-lg text-gray-300 drop-shadow-sm">Projects</div>
         </div>
         <div className="text-center">
-          <div className="text-4xl md:text-5xl font-extrabold text-[#a6b3c9] mb-1">99%</div>
-          <div className="text-lg text-gray-300">Partnership Success</div>
+          <div className="text-2xl md:text-5xl font-extrabold text-[#a6b3c9] mb-1 drop-shadow-md">99%</div>
+          <div className="text-xs md:text-lg text-gray-300 drop-shadow-sm">Partnership Success</div>
         </div>
         <div className="text-center">
-          <div className="text-4xl md:text-5xl font-extrabold text-[#a6b3c9] mb-1">50+</div>
-          <div className="text-lg text-gray-300">Trusted Clients</div>
+          <div className="text-2xl md:text-5xl font-extrabold text-[#a6b3c9] mb-1 drop-shadow-md">50+</div>
+          <div className="text-xs md:text-lg text-gray-300 drop-shadow-sm">Trusted Clients</div>
         </div>
         <div className="text-center">
-          <div className="text-4xl md:text-5xl font-extrabold text-[#a6b3c9] mb-1">4+</div>
-          <div className="text-lg text-gray-300">Years Partnership</div>
+          <div className="text-2xl md:text-5xl font-extrabold text-[#a6b3c9] mb-1 drop-shadow-md">4+</div>
+          <div className="text-xs md:text-lg text-gray-300 drop-shadow-sm">Years Partnership</div>
         </div>
       </div>
       {/* CTA Button */}
       <button
         onClick={scrollToAllProjects}
-        className="inline-flex items-center gap-2 px-8 py-4 bg-[#3b4861] hover:bg-[#4a5a7a] text-white rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 group shadow-lg"
+        className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-[#3b4861] hover:bg-[#4a5a7a] text-white rounded-xl font-semibold text-base md:text-lg transition-all duration-300 hover:scale-105 group shadow-xl border border-gray-600/50"
       >
-        Explore Our Work
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-      </button>
+                Explore Our Work
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 md:h-6 md:w-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </button>
     </div>
   );
 };
@@ -178,7 +183,7 @@ export const ProductCard = ({
         y: -20,
       }}
       key={product.title}
-      className="group/product h-96 w-[30rem] relative flex-shrink-0"
+      className="group/product h-48 md:h-96 w-[18rem] md:w-[30rem] relative flex-shrink-0"
     >
       <div
         onClick={scrollToAllProjects}
