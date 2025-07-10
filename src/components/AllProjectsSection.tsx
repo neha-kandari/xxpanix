@@ -127,9 +127,9 @@ const AllProjectsSection: React.FC = () => {
   };
 
   return (
-    <div id="all-projects" className="min-h-screen pt-20 bg-black text-white">
+    <div id="all-projects" className="min-h-screen pt-0 md:pt-4 bg-black text-white">
       {/* All Projects */}
-      <section className="py-8 px-4 bg-black">
+              <section className="py-4 md:py-8 px-4 bg-black">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 text-white">All Projects</h2>
           
