@@ -34,7 +34,7 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full fixed top-0 left-0 z-30 bg-black/40 backdrop-blur-md border-b border-white/10 shadow-lg transition-all duration-300">
+    <header className="w-full fixed top-0 left-0 z-50 bg-black/40 backdrop-blur-md border-b border-white/10 shadow-lg transition-all duration-300">
       <nav className="container mx-auto flex items-center justify-between py-4 px-4 sm:px-10">
         {/* Logo and Brand */}
         <div className="flex items-center gap-2">
@@ -112,7 +112,7 @@ export default function Header() {
       </nav>
       {/* Mobile Modal Menu */}
       {menuOpen && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/60">
+        <div className="fixed inset-0 z-[60] flex items-start justify-center bg-black/60">
           {/* Modal */}
           <div className="relative mt-8 w-[95vw] max-w-md rounded-2xl bg-black shadow-2xl flex flex-col items-stretch p-0">
             {/* Modal Header */}
