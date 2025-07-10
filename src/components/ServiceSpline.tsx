@@ -15,23 +15,17 @@ export default function ServiceSpline() {
   }, []);
 
   useEffect(() => {
-    if (!containerRef.current || !showSpline || !isMounted) return;
+    if (!showSpline || !isMounted) return;
 
-    // Below-the-fold content: use larger rootMargin for better UX
-    const lazyLoader = createLazySplineLoader(0.1, '150px');
-    
-    const cleanup = lazyLoader(containerRef.current, () => {
-      setIsVisible(true);
-      setShouldLoad(true);
-    });
-
-    return cleanup;
+    // Load immediately when component mounts for Services page
+    setIsVisible(true);
+    setShouldLoad(true);
   }, [showSpline, isMounted]);
 
   useEffect(() => {
     if (shouldLoad && showSpline && isMounted) {
-      // Use low priority for below-the-fold content
-      loadSplineViewer('low').catch(console.error);
+      // Use high priority for immediate loading
+      loadSplineViewer('high').catch(console.error);
     }
   }, [shouldLoad, showSpline, isMounted]);
 
@@ -80,7 +74,7 @@ export default function ServiceSpline() {
       }}
     >
       {shouldLoad && React.createElement('spline-viewer', {
-        url: "https://prod.spline.design/0HhtDF4IAOrdc6FJ/scene.splinecode",
+        url: "https://prod.spline.design/bunikdfDgR9Y2Y-Q/scene.splinecode",
         style: {
           width: '100%',
           height: '100%',
