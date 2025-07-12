@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import OptimizedImage from "./OptimizedImage";
 
 const categories = ["All", "Web Development", "UI/UX Design"];
 
@@ -159,10 +160,12 @@ const AllProjectsSection: React.FC = () => {
               >
                 {/* Responsive image container */}
                 <div className="relative h-32 md:h-40 lg:h-48 overflow-hidden bg-black">
-                  <img
+                  <OptimizedImage
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    priority={project.featured}
                   />
                   <div className="absolute top-2 left-2">
                     <span className="px-1.5 py-0.5 bg-slate-700 text-white text-[10px] md:text-xs rounded">

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ReactNode } from 'react';
 import StatsCounter from "./StatsCounter";
 import WaveGlow from "./WaveGlow";
+import OptimizedImage from "./OptimizedImage";
 
 interface HeroSectionProps {
   children?: ReactNode;
@@ -106,20 +107,44 @@ export default function HeroSection({ children }: HeroSectionProps) {
           <StatsCounter />
         </div>
       </div>
-      {/* Spline or children go here */}
+      {/* Background media - optimized for different screen sizes */}
       {children && (
         <div className="absolute inset-0 w-full h-full z-10 flex items-center justify-center px-2 sm:px-4">
           <div className="w-full h-full max-w-full max-h-full flex items-center justify-center">
-            {/* Mobile GIF - show on small screens */}
-            <div className="block sm:hidden w-full h-full flex items-center justify-center">
-              <img 
-                src="/threshold-dark-ambient-ui.gif" 
-                alt="Ambient UI Animation" 
-                className="w-full h-full object-cover rounded-lg opacity-60"
+            {/* Mobile - Use static image instead of heavy GIF */}
+            <div className="block sm:hidden w-full h-full">
+              <OptimizedImage 
+                src="/mobile-hero-bg.jpg" 
+                alt="Mobile Hero Background" 
+                className="w-full h-full object-cover opacity-60"
+                priority={true}
+                sizes="100vw"
               />
             </div>
-            {/* Responsive Spline container - hide on small screens */}
-            <div className="hidden sm:flex w-full h-full sm:w-full sm:h-full md:w-full md:h-full lg:w-full lg:h-full items-center justify-center">
+            {/* Desktop - Use video instead of GIF for better performance */}
+            <div className="hidden sm:block w-full h-full">
+              <video 
+                className="w-full h-full object-cover opacity-60"
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster="/hero-poster.jpg"
+              >
+                <source src="/hero-ambient-ui.mp4" type="video/mp4" />
+                <source src="/hero-ambient-ui.webm" type="video/webm" />
+                {/* Fallback to optimized image */}
+                <OptimizedImage 
+                  src="/hero-fallback.jpg" 
+                  alt="Hero Background" 
+                  className="w-full h-full object-cover opacity-60"
+                  priority={true}
+                  sizes="100vw"
+                />
+              </video>
+            </div>
+            {/* Spline container for larger screens */}
+            <div className="hidden lg:flex w-full h-full items-center justify-center">
               {children}
             </div>
           </div>
