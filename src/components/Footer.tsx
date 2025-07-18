@@ -92,8 +92,8 @@ export default function Footer() {
             <div className="flex items-start gap-3">
               <MapPin className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
               <span className="text-gray-300 leading-relaxed">
-                2, Eadgah Road Model Town Panipat<br />
-                Haryana
+                2, Eadgah Road Model Town Panipat, Haryana<br /> 
+                D91 West patel nagar, Delhi
               </span>
             </div>
             <div className="flex items-center gap-3">
