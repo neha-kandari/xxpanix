@@ -101,7 +101,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold mb-1">Our location</h3>
-                      <p className="text-gray-400">2, Eadgah Road Model Town Panipat Haryana</p>
+                      <p className="text-gray-400">2, Eadgah Road Model Town Panipat Haryana <br/> D91 West patel nagar, Delhi</p>
                     </div>
                     <div className="ml-auto">
                       <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
